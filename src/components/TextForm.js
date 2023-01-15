@@ -13,6 +13,7 @@ export default function TextForm(props) {
     }
     const [text, setText] = useState('Enter text here');
   return (
+    <>
     <div>
         <h3>{props.heading}</h3>
         <div className="mb-3">
@@ -20,6 +21,11 @@ export default function TextForm(props) {
         </div> 
         <button className="btn btn-primary" onClick={handleUpClick}>Convert to Uppercase</button>
     </div>
+    <div className="container my-3">
+        <h1>Your Text Summary</h1>
+        <p>{text.split(" ").length} words and {text.length} characters.</p>
+    </div>
+    </>
   )
 }
 
