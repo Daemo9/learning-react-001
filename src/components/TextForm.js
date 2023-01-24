@@ -21,19 +21,22 @@ export default function TextForm(props) {
         // console.log('handleOnChange called..');
         setText(event.target.value)
     }
-    const [text, setText] = useState('Enter text here');
+    const [text, setText] = useState('');
+    const textColor = {
+        color: props.mode ==='dark'?'white':'black'
+    }
   return (
     <>
-    <div>
-        <h3>{props.heading}</h3>
-        <div className="mb-3">
-            <textarea className="form-control" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="8"></textarea>
+    <div className="container">
+        <h3 style={textColor} >{props.heading}</h3>
+        <div className="mb-3" >
+            <textarea className="form-control" value={text} style={{backgroundColor: props.mode ==='dark'?'#373436':'white',color: props.mode ==='dark'?'white':'black'}} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="8"></textarea>
         </div> 
         <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to Uppercase</button>
         <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Convert to Lowercase</button>
         <button className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>Clear Text</button>
     </div>
-    <div className="container my-3">
+    <div className="container my-3" style={textColor}>
         <h1>Your Text Summary</h1>
         <p>{text.split(" ").length} words and {text.length} characters.</p>
         <h2>Preview</h2>
