@@ -8,8 +8,6 @@ function Alert(props) {
   return (
     props.alertMessage && <div className={`alert alert-${props.alertMessage.type} alert-dismissible fade show`} role="alert">
         <strong> {upperCase(props.alertMessage.type)}!!</strong> {props.alertMessage.msg}
-        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close">
-        </button>
     </div>
   )
 }

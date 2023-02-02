@@ -1,27 +1,42 @@
 import React, {useState} from 'react'
 
 export default function TextForm(props) {
-    
+    const [text, setText] = useState('');
     const handleUpClick=()=>{
         // console.log('handleUpClick called..ToUpperCase '+text);
+        if(text.length<1){
+            props.setAlert("Please enter text.","warning");
+            return;
+        }
         let upperText = text.toUpperCase();
         setText(upperText)
+        props.setAlert("Converted to uppercase.","success")
     }
     const handleLoClick=()=>{
         // console.log('handleUpClick called..ToUpperCase '+text);
+        if(text.length<1){
+            props.setAlert("Please enter text.","warning");
+            return;
+        }
         let upperText = text.toLowerCase();
         setText(upperText)
+        props.setAlert("Converted to lowercase.","success")
     }
 
     const handleClearClick=()=>{
+        if(text.length<1){
+            props.setAlert("Please enter text.","warning");
+            return;
+        }
         setText('')
+        props.setAlert("Text cleared.","success")
     }
 
     const handleOnChange=(event)=>{
         // console.log('handleOnChange called..');
         setText(event.target.value)
     }
-    const [text, setText] = useState('');
+   
     const textColor = {
         color: props.mode ==='dark'?'white':'black'
     }
