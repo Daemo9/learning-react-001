@@ -53,7 +53,7 @@ export default function TextForm(props) {
     </div>
     <div className="container my-3" style={textColor}>
         <h1>Your Text Summary</h1>
-        <p>{text.split(" ").length} words and {text.length} characters.</p>
+        <p>{text.length<1?0:text.trim().split(" ").length} words and {text.length} characters.</p>
         <h2>Preview</h2>
         <p>{text}</p>
     </div>
